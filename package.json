@@ -1,0 +1,29 @@
+{
+  "name": "gogoro_demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "type": "module",
+  "dependencies": {
+    "express": "^4.18.2",
+    "js-yaml": "^4.1.0",
+    "mariadb": "^3.2.0",
+    "node-fetch": "^3.3.2",
+    "pino": "^8.15.1",
+    "sequelize": "^6.33.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "export LEVEL=debug && export && NODE_ENV=production node ./app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/o60816/gogoro_demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/o60816/gogoro_demo/issues"
+  },
+  "homepage": "https://github.com/o60816/gogoro_demo#readme"
+}

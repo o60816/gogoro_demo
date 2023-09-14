@@ -1,4 +1,8 @@
 # Logs
+.DS_Store
+debug-log.stream.out
+gogoro_demo_ci/
+package-lock.json
 logs
 *.log
 npm-debug.log*
@@ -85,7 +89,6 @@ web_modules/
 
 # Next.js build output
 .next
-out
 
 # Nuxt.js build / generate output
 .nuxt
