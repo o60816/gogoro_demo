@@ -8,20 +8,15 @@ export default function userRepositoryMariaDB() {
     }
 
     const getUsersWithDetailBy = (queries) => {
-        let page = parseInt(queries._page) || 1;
-        let limit = parseInt(queries._limit) || 10;
-        let createdFrom = parseInt(queries.createdFrom) || 0;
-        let createdTo = parseInt(queries.createdTo) || Date.now()/1000;
-        let jobType = queries.jobType;
         let conditions = {
             '$Details.created_at$': {
-                [Op.between]: [Sequelize.fn('FROM_UNIXTIME', createdFrom), Sequelize.fn('FROM_UNIXTIME', createdTo)]
+                [Op.between]: [Sequelize.fn('FROM_UNIXTIME', queries.createdFrom), Sequelize.fn('FROM_UNIXTIME', queries.createdTo)]
             }
         }
-        if(jobType) {
-            conditions.jobType = jobType;
+        if(queries.jobType) {
+            conditions.jobType = queries.jobType;
         }
-        return UserModel.findAll({
+        return UserModel.findAndCountAll({
             include: [
                 {
                     model: UserDetailModel, 
@@ -29,8 +24,8 @@ export default function userRepositoryMariaDB() {
                 }
             ],
             where: conditions,
-            offset: (page-1) * limit,
-            limit: limit
+            offset: (queries.page-1) * queries.limit,
+            limit: queries.limit
         });
     }
 

@@ -8,7 +8,8 @@ export default function userController(
     const dbRepository = userPort(userAdapter());
     const getUsersBy = async (req, res, next) => {
         try {
-            const result = await getUsersWithDetailByUseCase(getUsersWithDetailByService(dbRepository)).getUsersWithDetailBy(req.query);
+            const query = req.query;
+            const result = await getUsersWithDetailByUseCase(getUsersWithDetailByService(dbRepository)).getUsersWithDetailBy(query);
             res.json(result);
         }catch(err) {
             logger.error(err.message);
