@@ -2,7 +2,7 @@ import yaml from 'js-yaml';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import mariadbConnection from './src/user/adapter/out/mariadb/connection.js';
+import mariadbConnection from './src/frameworks/database/mariadb/connection.js';
 import express from 'express';
 import routes from './src/frameworks/webserver/routes/index.js';
 import expressConfig from './src/frameworks/webserver/express.js';

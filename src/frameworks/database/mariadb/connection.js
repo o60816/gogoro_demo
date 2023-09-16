@@ -1,5 +1,5 @@
 import Sequelize from 'sequelize';
-import logger from '../../../../utils/logger.js';
+import logger from '../../../utils/logger.js';
 import { UserModel, initUserModel } from './models/user.js';
 import { UserDetailModel, initUserDetailModel } from './models/user-detail.js';
 
@@ -13,13 +13,9 @@ export default async function initDatabase(config) {
         await sequelize.authenticate();
         await initUserModel(sequelize);
         await initUserDetailModel(sequelize);
-        await UserModel.hasMany(UserDetailModel, {
+        await UserModel.hasOne(UserDetailModel, {
             foreignKey: 'id',
             as: 'Details'
-        });
-        await UserDetailModel.hasOne(UserModel, {
-            foreignKey: 'id',
-            as: 'User'
         });
         logger.info(`MariaDB has initialized and connected`);
     }catch(err) {
