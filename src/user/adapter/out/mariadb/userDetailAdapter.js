@@ -1,6 +1,6 @@
-import { UserDetailModel } from '../models/user-detail.js';
-import { UserModel } from '../models/user.js';
-import { Op } from 'sequelize';
+import { UserDetailModel } from './models/user-detail.js';
+import { UserModel } from './models/user.js';
+import { Op, Sequelize } from 'sequelize';
 
 export default function userDetailRepositoryMariaDB() {
     const addUserDetails = (userDetails) => {
@@ -17,7 +17,7 @@ export default function userDetailRepositoryMariaDB() {
             ],
             where: {
                 createdAt: {
-                    [Op.between]: [from, to]
+                    [Op.between]: [Sequelize.fn('FROM_UNIXTIME', from), Sequelize.fn('FROM_UNIXTIME', to)]
                 }
             }
         });
