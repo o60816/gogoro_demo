@@ -10,7 +10,7 @@ export async function initUserDetailModel(sequelize) {
             primaryKey: true,
         },
         createdAt: {
-            type: Sequelize.DATE,
+            type: Sequelize.TIMESTAMP,
             allowNull: false,
             field: 'created_at'
         },
