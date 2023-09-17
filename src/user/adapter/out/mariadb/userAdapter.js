@@ -25,7 +25,10 @@ export default function userRepositoryMariaDB() {
             ],
             where: conditions,
             offset: (queries.page-1) * queries.limit,
-            limit: queries.limit
+            limit: queries.limit,
+            order: [
+                ['id', 'ASC']
+            ],
         });
     }
 

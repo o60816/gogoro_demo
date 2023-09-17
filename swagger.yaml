@@ -38,35 +38,30 @@ paths:
           required: false
           schema:
             type: number
-            default: 1
         - name: _limit
           in: query
           description: The limit of the page size
           required: false
           schema:
             type: number
-            default: 10
         - name: createdFrom
           in: query
           description: Specify the users that created at from
           required: false
           schema:
             type: timestamp
-            default: 1
         - name: createdTo
           in: query
           description: Specify the users that created at till
           required: false
           schema:
             type: timestamp
-            default: Now
         - name: jobType
           in: query
           description: Specify the jobType of users
           required: false
           schema:
             type: string
-            default: undefined
       responses:
         '200':
           description: successful operation
