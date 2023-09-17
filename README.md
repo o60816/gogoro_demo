@@ -14,7 +14,10 @@ git clone https://github.com/o60816/gogoro_demo_ci.git
 ```
 docker-compose up -d
 ```
-5. npm start the server
+5. Start the server through the command below
+```
+npm start
+```
 
 # APIs
 ## User
@@ -58,7 +61,8 @@ e.g.
 /users?createdTo=1
 
 ## jobType
-- Type: string
+- Type: string  
+
 e.g.  
 /users?jobType=Planner
 
