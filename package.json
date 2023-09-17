@@ -5,6 +5,8 @@
   "main": "app.js",
   "type": "module",
   "dependencies": {
+    "@faker-js/faker": "^8.0.2",
+    "chai": "^4.3.8",
     "express": "^4.18.2",
     "joi": "^17.10.1",
     "js-yaml": "^4.1.0",
@@ -12,10 +14,14 @@
     "morgan": "^1.10.0",
     "node-fetch": "^3.3.2",
     "pino": "^8.15.1",
-    "sequelize": "^6.33.0"
+    "request": "^2.88.2",
+    "sequelize": "^6.33.0",
+    "sinon": "^16.0.0",
+    "swagger-ui-express": "^5.0.0"
   },
   "scripts": {
-    "start": "export LEVEL=debug && export && NODE_ENV=production node ./app.js"
+    "start": "export LEVEL=debug && export && NODE_ENV=production node ./app.js",
+    "test": "mocha --timeout 30000"
   },
   "repository": {
     "type": "git",
@@ -26,5 +32,8 @@
   "bugs": {
     "url": "https://github.com/o60816/gogoro_demo/issues"
   },
-  "homepage": "https://github.com/o60816/gogoro_demo#readme"
+  "homepage": "https://github.com/o60816/gogoro_demo#readme",
+  "devDependencies": {
+    "mocha": "^10.2.0"
+  }
 }
