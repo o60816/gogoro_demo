@@ -7,7 +7,8 @@ export default async function initDatabase(config) {
     const sequelize = new Sequelize('gogoro', config.DB.Maria.User, config.DB.Maria.Pwd, {
         host: config.DB.Maria.Host,
         dialect: config.DB.Maria.Dialect,
-        logging: logger.debug
+        logging: logger.debug,
+        timezone : '+08:00'
     });
     try { 
         await sequelize.authenticate();
