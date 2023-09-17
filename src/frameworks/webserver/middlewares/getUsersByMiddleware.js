@@ -6,8 +6,8 @@ export default async function getUsersByMiddleware(req, res, next) {
     const schema = Joi.object({
       _page: Joi.number().integer().min(1),
       _limit: Joi.number().integer().min(1),
-      createdFrom: Joi.number().integer().min(0),
-      createdTo:  Joi.number().integer().min(0),
+      createdFrom: Joi.number().integer().min(1),
+      createdTo:  Joi.number().integer().min(1),
       jobType: Joi.string()
     });
     await schema.validateAsync(req.query);

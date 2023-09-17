@@ -52,19 +52,21 @@ paths:
           required: false
           schema:
             type: timestamp
-            default: 0
+            default: 1
         - name: createdTo
           in: query
           description: Specify the users that created at till
           required: false
           schema:
             type: timestamp
+            default: Now
         - name: jobType
           in: query
           description: Specify the jobType of users
           required: false
           schema:
             type: string
+            default: undefined
       responses:
         '200':
           description: successful operation
