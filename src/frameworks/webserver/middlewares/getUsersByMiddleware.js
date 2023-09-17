@@ -14,7 +14,7 @@ export default async function getUsersByMiddleware(req, res, next) {
     next();
   }catch(err) {
     logger.error(err.message);
-    let error = new Error('Invalid query parameters');
+    let error = new Error('Malformed query parameters');
     error.statusCode = 400;
     next(error);
   }

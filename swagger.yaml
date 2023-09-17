@@ -1,0 +1,160 @@
+openapi: 3.0.3
+info:
+  title: GOGORO Demo
+  description: |-
+    Requirement:
+    - Please implement API(s) for getting users data, the return data should contain  
+      - id  
+      - name  
+      - jobType  
+      - createdAt  
+      - city  
+      - zipCode  
+      - address  
+      - gender  
+    - Pagination is required, default will return 10 users in response.
+    - The API(s) can be queried by fields below:  
+      - createdFrom  
+      - createdTo  
+      - jobType  
+  version: 1.0.11
+servers:
+  - url: http://127.0.0.1:3003/api/v1/
+tags:
+  - name: user
+    description: User Infos
+paths:
+  /users:
+    get:
+      tags:
+        - users
+      summary: Get Users
+      description: You may want ot get Users with detail and pagination info from this API
+      operationId: getUsersWithDetailBy
+      parameters:
+        - name: _page
+          in: query
+          description: Specify the page of the uers
+          required: false
+          schema:
+            type: number
+            default: 1
+        - name: _limit
+          in: query
+          description: The limit of the page size
+          required: false
+          schema:
+            type: number
+            default: 10
+        - name: createdFrom
+          in: query
+          description: Specify the users that created at from
+          required: false
+          schema:
+            type: timestamp
+            default: 0
+        - name: createdTo
+          in: query
+          description: Specify the users that created at till
+          required: false
+          schema:
+            type: timestamp
+        - name: jobType
+          in: query
+          description: Specify the jobType of users
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Users'
+        '400':
+          description: Malformed query params
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/500Error'
+components:
+  schemas:
+    Users:
+      type: object
+      properties:
+        pageInfo:
+          type: object
+          properties:
+            curPage:
+              type: number
+              example: 1
+            totalPage:
+              type: number
+              example: 5
+            limit:
+              type: number
+              example: 10
+            hasPrevPage:
+              type: boolean
+              example: false
+            hasNextPage:
+              type: boolean
+              example: true
+        userInfos: 
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: number
+                example: 1
+              name:
+                type: string
+                example: theUser
+              jobType:
+                type: string
+                example: John
+              Details:
+                type: object
+                properties:
+                  createdAt:
+                    type: string
+                    example: 2023-06-13T18:44:53.000Z
+                  city:
+                    type: string
+                    example: Santa Cruz,
+                  zipCode:
+                    type: string
+                    example: 10145-4143,
+                  address:
+                    type: string
+                    example: 161 Douglas Port,
+                  gender:
+                    type: string
+                    example: Neither
+    400Error: 
+      type: object
+      properties:
+        status:
+          type: number
+          example: 400
+        message:
+          type: string
+          example: Malformed query parameters
+    500Error: 
+      type: object
+      properties:
+        status:
+          type: number
+          example: 500
+        message:
+          type: string
+          example: Something went wrong
+
