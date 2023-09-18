@@ -1,15 +1,16 @@
 # gogoro_demo
 
 # Usage
-1. Clone the gogoro_demo repository from github through the command below
+1. Install docker and docker-compose
+2. Clone the gogoro_demo repository from github through the command below
 ```
 git clone https://github.com/o60816/gogoro_demo.git
 ```
-2. cd into gogoro_demo through the command below
+3. cd into gogoro_demo through the command below
 ```
 cd gogoro_demo
 ```
-3. Execute build.sh to download configuration and start the service through the command below
+4. Execute build.sh to download configuration and start the service through the command below
 ```
 sh ./build.sh
 ```
