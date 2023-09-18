@@ -20,7 +20,7 @@
     "swagger-ui-express": "^5.0.0"
   },
   "scripts": {
-    "start": "export LEVEL=debug && export && NODE_ENV=production node ./app.js",
+    "start": "export LEVEL=debug && NODE_ENV=production node ./app.js",
     "test": "mocha --timeout 30000"
   },
   "repository": {

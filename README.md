@@ -10,13 +10,9 @@ git clone https://github.com/o60816/gogoro_demo.git
 git clone https://github.com/o60816/gogoro_demo_ci.git
 ```
 3. cd into the gogoro_demo_ci
-4. Type command below to start the mariadb
+4. Type command below to start the mariadb and service
 ```
 docker-compose up -d
-```
-5. Start the server through the command below
-```
-npm start
 ```
 
 # APIs
@@ -44,7 +40,7 @@ The minimum value of _limit should be 1, otherwise you will get 400 error
 e.g.  
 /users?_limit=1
 
-## createdFrom
+## _createdFrom
 - Type: timestamp
 ```
 The minimum value of createdFrom should be 1, otherwise you will get 400 error 
@@ -52,7 +48,7 @@ The minimum value of createdFrom should be 1, otherwise you will get 400 error
 e.g.  
 /users?createdFrom=1
 
-## createdTo
+## _createdTo
 - Type: timestamp
 ```
 The minimum value of createdFrom should be 1, otherwise you will get 400 error 
@@ -60,7 +56,7 @@ The minimum value of createdFrom should be 1, otherwise you will get 400 error
 e.g.  
 /users?createdTo=1
 
-## jobType
+## _jobType
 - Type: string  
 
 e.g.  

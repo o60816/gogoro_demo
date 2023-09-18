@@ -7,9 +7,9 @@ export default function getUsersByService(repository) {
         try {
             const page = parseInt(queries._page) || 1;
             const limit = parseInt(queries._limit) || 10;
-            const createdFrom = parseInt(queries.createdFrom) || 1;
-            const createdTo = parseInt(queries.createdTo) || Math.floor(Date.now()/1000);
-            const jobType = queries.jobType;
+            const createdFrom = parseInt(queries._createdFrom) || 1;
+            const createdTo = parseInt(queries._createdTo) || Math.floor(Date.now()/1000);
+            const jobType = queries._jobType;
             const {count, rows} = await repository.getUsersWithDetailBy({page, limit, createdFrom, createdTo, jobType});
             const userInfos = rows.map((user)=>{
                 const details = user.Details;

@@ -44,19 +44,19 @@ paths:
           required: false
           schema:
             type: number
-        - name: createdFrom
+        - name: _createdFrom
           in: query
           description: Specify the users that created at from
           required: false
           schema:
             type: timestamp
-        - name: createdTo
+        - name: _createdTo
           in: query
           description: Specify the users that created at till
           required: false
           schema:
             type: timestamp
-        - name: jobType
+        - name: _jobType
           in: query
           description: Specify the jobType of users
           required: false
