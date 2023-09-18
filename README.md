@@ -5,14 +5,17 @@
 ```
 git clone https://github.com/o60816/gogoro_demo.git
 ```
-2. Clone the gogoro_demo_ci repository from github through the command below and then put it inside the gogoro_demo
+2. cd into gogoro_demo through the command below
+```
+cd gogoro_demo
+```
+3. Clone the gogoro_demo_ci repository from github through the command below
 ```
 git clone https://github.com/o60816/gogoro_demo_ci.git
 ```
-3. cd into the gogoro_demo_ci
 4. Type command below to start the mariadb and service
 ```
-docker-compose up -d
+docker-compose -f ./gogoro_demo_ci/docker-compose.yaml up -d
 ```
 
 # APIs
