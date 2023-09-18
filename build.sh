@@ -3,3 +3,7 @@ git clone https://github.com/o60816/gogoro_demo_ci.git
 
 ECHO Start the mariadb and service 
 docker-compose -f ./gogoro_demo_ci/docker-compose.yaml up -d
+
+ECHO Wait service to initialize
+sleep 90s
+ECHO Finish!!
