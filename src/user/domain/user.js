@@ -1,4 +1,4 @@
-export default function user(id, name, jobType, createdAt, city, zipCode, address, gender) {
+export default function user(id, name, jobType) {
     return {
       getId: () => id,
       getName: () => name,

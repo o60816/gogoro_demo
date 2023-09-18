@@ -51,7 +51,7 @@ describe('Use cases', () => {
       const queryParamsGen = { 
         page: 1,
         limit: 10,
-        createdFrom: 0,
+        createdFrom: 1,
         createdTo: Math.floor(Date.now()/1000),
         jobType: undefined 
       }
@@ -79,7 +79,7 @@ describe('Use cases', () => {
       const queryParamsGen = { 
         page: 5,
         limit: 10,
-        createdFrom: 0,
+        createdFrom: 1,
         createdTo: Math.floor(Date.now()/1000),
         jobType: undefined 
       }
@@ -111,7 +111,7 @@ describe('Use cases', () => {
       const queryParamsGen = { 
         page: 1,
         limit: 20,
-        createdFrom: 0,
+        createdFrom: 1,
         createdTo: Math.floor(Date.now()/1000),
         jobType: undefined 
       }
@@ -136,7 +136,7 @@ describe('Use cases', () => {
       const userInfos = generateUsers(20);
       // Empty query params
       const queryParams = {
-        createdFrom: 9999
+        _createdFrom: 9999
       }
       // Generate by service
       const queryParamsGen = { 
@@ -163,13 +163,13 @@ describe('Use cases', () => {
       const userInfos = generateUsers(20);
       // Empty query params
       const queryParams = {
-        createdTo: 9999
+        _createdTo: 9999
       }
       // Generate by service
       const queryParamsGen = { 
         page: 1,
         limit: 10,
-        createdFrom: 0,
+        createdFrom: 1,
         createdTo: 9999,
         jobType: undefined 
       }
@@ -198,13 +198,13 @@ describe('Use cases', () => {
       const userInfos = generateUsers(20);
       // Empty query params
       const queryParams = {
-        jobType: 'Engineer'
+        _jobType: 'Engineer'
       }
       // Generate by service
       const queryParamsGen = { 
         page: 1,
         limit: 10,
-        createdFrom: 0,
+        createdFrom: 1,
         createdTo: Math.floor(Date.now()/1000),
         jobType: 'Engineer'
       }
@@ -231,7 +231,7 @@ describe('Use cases', () => {
       const queryParamsGen = { 
         page: 10,
         limit: 10,
-        createdFrom: 0,
+        createdFrom: 1,
         createdTo: Math.floor(Date.now()/1000),
         jobType: undefined 
       }

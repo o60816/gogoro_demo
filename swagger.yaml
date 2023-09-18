@@ -19,17 +19,14 @@ info:
       - jobType  
   version: 1.0.11
 servers:
-  - url: http://127.0.0.1:3003/api/v1/
-tags:
-  - name: user
-    description: User Infos
+  - url: http://127.0.0.1:3003
 paths:
-  /users:
+  /api/v1/users:
     get:
       tags:
         - users
       summary: Get Users
-      description: You may want ot get Users with detail and pagination info from this API
+      description: Get Users with detail and pagination info from this API
       operationId: getUsersWithDetailBy
       parameters:
         - name: _page

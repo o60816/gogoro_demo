@@ -20,7 +20,7 @@ sh ./build.sh
 
 # APIs
 ## User
-- Path: /users
+- Path: /api/v1/users
 
 ## API document
 - Path: /api-docs
@@ -65,3 +65,8 @@ e.g.
 e.g.  
 /users?jobType=Planner
 
+# Test
+- Run unit tests through command below
+```
+npm test
+```
