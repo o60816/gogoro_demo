@@ -11,7 +11,7 @@ cd gogoro_demo
 ```
 3. Execute build.sh to download configuration and start the service through the command below
 ```
-sh build.sh
+sh ./build.sh
 ```
 
 # APIs
