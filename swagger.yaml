@@ -78,6 +78,69 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/500Error'
+  /api/v1/users/{userID}:
+    get:
+      tags:
+        - users
+      summary: Get User by ID
+      description: Get User by ID with detail and pagination info from this API
+      operationId: getUsersWithDetailBy
+      parameters:
+        - name: userID
+          in: path
+          description: User ID
+          required: true
+          schema:
+            type: number
+        - name: _page
+          in: query
+          description: Specify the page of the uers
+          required: false
+          schema:
+            type: number
+        - name: _limit
+          in: query
+          description: The limit of the page size
+          required: false
+          schema:
+            type: number
+        - name: _createdFrom
+          in: query
+          description: Specify the users that created at from
+          required: false
+          schema:
+            type: timestamp
+        - name: _createdTo
+          in: query
+          description: Specify the users that created at till
+          required: false
+          schema:
+            type: timestamp
+        - name: _jobType
+          in: query
+          description: Specify the jobType of users
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Users'
+        '400':
+          description: Malformed query params
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/500Error'
 components:
   schemas:
     Users:

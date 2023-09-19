@@ -6,5 +6,6 @@ import getUsersByMiddleware from '../middlewares/getUsersByMiddleware.js';
 export default function userRouter(express) {
     const router = express.Router();
     router.get('/', getUsersByMiddleware, userController(userPort, userAdapter).getUsersBy);
+    router.get('/:id', getUsersByMiddleware, userController(userPort, userAdapter).getUsersBy);
     return router;
 }

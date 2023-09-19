@@ -10,7 +10,8 @@ export default function getUsersByService(repository) {
             const createdFrom = parseInt(queries._createdFrom) || 1;
             const createdTo = parseInt(queries._createdTo) || Math.floor(Date.now()/1000);
             const jobType = queries._jobType;
-            const {count, rows} = await repository.getUsersWithDetailBy({page, limit, createdFrom, createdTo, jobType});
+            const id = queries.id;
+            const {count, rows} = await repository.getUsersWithDetailBy({id, page, limit, createdFrom, createdTo, jobType});
             const userInfos = rows.map((user)=>{
                 const details = user.Details;
                 return {

@@ -30,6 +30,7 @@ function generateUsers(amount) {
 
 let userRepository = null;
 let pageInfo = null;
+let queryParamsGen = null;
 describe('Use cases', () => {
   describe('Fetch user with different combinations of query params', () => {
     beforeEach(() => {
@@ -41,20 +42,19 @@ describe('Use cases', () => {
         false, 
         true
       ).toJson();
-    });
-
-    it('Without query params', async () => {
-      const userInfos = generateUsers(10);
-      // Empty query params
-      const queryParams = {}
-      // Generate by service
-      const queryParamsGen = { 
+      queryParamsGen = {
+        id: undefined,
         page: 1,
         limit: 10,
         createdFrom: 1,
         createdTo: Math.floor(Date.now()/1000),
         jobType: undefined 
       }
+    });
+    it('Without query params', async () => {
+      const userInfos = generateUsers(10);
+      // Empty query params
+      const queryParams = {}
       const count = 50;
 
       const stubGetUsersWithDetailBy = sinon
@@ -76,13 +76,7 @@ describe('Use cases', () => {
         _page: 5
       }
       // Generate by service
-      const queryParamsGen = { 
-        page: 5,
-        limit: 10,
-        createdFrom: 1,
-        createdTo: Math.floor(Date.now()/1000),
-        jobType: undefined 
-      }
+      queryParamsGen.page = 5;
       const count = 50;
       const stubGetUsersWithDetailBy = sinon
         .stub(userRepository, 'getUsersWithDetailBy')
@@ -108,13 +102,7 @@ describe('Use cases', () => {
         _limit: 20
       }
       // Generate by service
-      const queryParamsGen = { 
-        page: 1,
-        limit: 20,
-        createdFrom: 1,
-        createdTo: Math.floor(Date.now()/1000),
-        jobType: undefined 
-      }
+      queryParamsGen.limit = 20;
       const count = 50;
       const stubGetUsersWithDetailBy = sinon
         .stub(userRepository, 'getUsersWithDetailBy')
@@ -139,13 +127,7 @@ describe('Use cases', () => {
         _createdFrom: 9999
       }
       // Generate by service
-      const queryParamsGen = { 
-        page: 1,
-        limit: 10,
-        createdFrom: 9999,
-        createdTo: Math.floor(Date.now()/1000),
-        jobType: undefined 
-      }
+      queryParamsGen.createdFrom = 9999;
       const count = 50;
       const stubGetUsersWithDetailBy = sinon
         .stub(userRepository, 'getUsersWithDetailBy')
@@ -166,13 +148,7 @@ describe('Use cases', () => {
         _createdTo: 9999
       }
       // Generate by service
-      const queryParamsGen = { 
-        page: 1,
-        limit: 10,
-        createdFrom: 1,
-        createdTo: 9999,
-        jobType: undefined 
-      }
+      queryParamsGen.createdTo = 9999;
       const count = 50;
       const pageInfo = Page(
         1, 
@@ -201,13 +177,7 @@ describe('Use cases', () => {
         _jobType: 'Engineer'
       }
       // Generate by service
-      const queryParamsGen = { 
-        page: 1,
-        limit: 10,
-        createdFrom: 1,
-        createdTo: Math.floor(Date.now()/1000),
-        jobType: 'Engineer'
-      }
+      queryParamsGen.jobType = 'Engineer';
       const count = 50;
       const stubGetUsersWithDetailBy = sinon
         .stub(userRepository, 'getUsersWithDetailBy')
@@ -228,13 +198,7 @@ describe('Use cases', () => {
         _page: 10
       }
       // Generate by service
-      const queryParamsGen = { 
-        page: 10,
-        limit: 10,
-        createdFrom: 1,
-        createdTo: Math.floor(Date.now()/1000),
-        jobType: undefined 
-      }
+      queryParamsGen.page = 10;
       const count = 50;
       const stubGetUsersWithDetailBy = sinon
         .stub(userRepository, 'getUsersWithDetailBy')

@@ -21,6 +21,7 @@ sh ./build.sh
 # APIs
 ## User
 - Path: /api/v1/users
+- Path: /api/v1/users/:id
 
 ## API document
 - Path: /api-docs

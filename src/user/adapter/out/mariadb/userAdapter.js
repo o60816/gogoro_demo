@@ -16,6 +16,9 @@ export default function userRepositoryMariaDB() {
         if(queries.jobType) {
             conditions.jobType = queries.jobType;
         }
+        if(queries.id) {
+            conditions.id = queries.id;
+        }
         return UserModel.findAndCountAll({
             include: [
                 {
